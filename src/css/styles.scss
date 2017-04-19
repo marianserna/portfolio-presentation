@@ -1,0 +1,11 @@
+@import "reset";
+@import "components/landing";
+@import "components/panels";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "PP-explode",
+  "version": "1.0.0",
+  "description": "boom",
+  "main": "index.js",
+  "author": "Marian",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server -c-1",
+    "watch": "concurrently --prefix \"[{name}]\" --names \"HTTP,SASS\" -c \"bgBlue.bold,bgMagenta.bold\" \"yarn start\" \"yarn watch-styles\"",
+    "watch-styles": "sass --watch src/css/styles.scss:src/css/styles.css"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "http-server": "^0.9.0"
+  }
+}
