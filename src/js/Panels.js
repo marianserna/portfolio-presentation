@@ -134,26 +134,26 @@
 
     TweenMax.fromTo('.landing', 1, {opacity: 0}, {opacity: 1});
   }
+
+  function splitText(selector) {
+    const quote = document.querySelector(selector);
+    // Reset text for subsequent calls
+    quote.innerHTML = quote.textContent;
+    const mySplitText = new SplitText(quote, {type:"chars"});
+    const tl = new TimelineMax({delay:0.2});
+
+    //prep the quote div for 3D goodness
+    TweenLite.set(quote, {transformPerspective:600, perspective:300, transformStyle:"preserve-3d", autoAlpha:1});
+
+    //intro sequence
+    mySplitText.chars.forEach((char) => {
+      tl.from(char, 1.5, {z:randomNumber(-500,300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
+    })
+
+    tl.from(quote, tl.duration(), {rotationY:180, transformOrigin:"50% 75% 200", ease:Power2.easeOut}, 0);
+  }
+
+  function randomNumber(min, max){
+      return Math.floor(Math.random() * (1 + max - min) + min);
+  }
 })();
-
-function splitText(selector) {
-  const quote = document.querySelector(selector);
-  // Reset text for subsequent calls
-  quote.innerHTML = quote.textContent;
-  const mySplitText = new SplitText(quote, {type:"chars"});
-  const tl = new TimelineMax({delay:0.2});
-
-  //prep the quote div for 3D goodness
-  TweenLite.set(quote, {transformPerspective:600, perspective:300, transformStyle:"preserve-3d", autoAlpha:1});
-
-  //intro sequence
-  mySplitText.chars.forEach((char) => {
-    tl.from(char, 1.5, {z:randomNumber(-500,300), opacity:0, rotationY:randomNumber(-40, 40)}, Math.random()*1.5);
-  })
-
-  tl.from(quote, tl.duration(), {rotationY:180, transformOrigin:"50% 75% 200", ease:Power2.easeOut}, 0);
-}
-
-function randomNumber(min, max){
-    return Math.floor(Math.random() * (1 + max - min) + min);
-}

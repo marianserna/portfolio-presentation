@@ -107,7 +107,8 @@ h2 {
   padding-right: 3%;
   padding-left: 10px;
   cursor: pointer;
-  transition: color 1s ease; }
+  transition: color 1s ease;
+  color: #e53935; }
   #right-heading:hover {
     color: #FFF; }
   @media (max-width: 730px) {
@@ -191,6 +192,7 @@ h2 {
   transition: color 1s ease;
   background: none;
   text-shadow: none;
+  color: #e53935;
   z-index: 10; }
   #home:hover {
     color: #FFF; }

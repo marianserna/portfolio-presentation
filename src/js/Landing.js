@@ -1,5 +1,6 @@
 (function() {
-  TweenMax.fromTo('h1', 0.5, {opacity: 0}, {opacity: 1, delay: 2, ease: Power2.easeInOut});
+  // TweenMax.fromTo('h1', 0.5, {opacity: 0}, {opacity: 1, delay: 2, ease: Power2.easeInOut});
+  animateHeading();
 
   const start = document.getElementById('right-heading');
   const name = document.getElementById('left-heading');
@@ -50,5 +51,17 @@
     panels.style.display = 'flex';
 
     TweenMax.fromTo('.panels', 0.3, {opacity: 0}, {opacity: 1, delay: 0.3});
+  }
+
+  function animateHeading() {
+    const title = document.querySelector('h1');
+    const mySplitText = new SplitText(title, {type:"chars"});
+    const tl = new TimelineMax({delay:0.2});
+
+    mySplitText.chars.forEach((char, i) => {
+      tl.from(char, 2.5,
+        {y: (i % 2 === 0 ? 100 : -100), opacity:0, color: '#000'},
+        Math.random()*1.5);
+    });
   }
 })();
